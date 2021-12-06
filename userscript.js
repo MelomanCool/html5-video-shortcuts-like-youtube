@@ -96,6 +96,7 @@
                 e.preventDefault();
                 seekPercent(vid, 90);
             } else if (key === 'KeyF') {
+                e.preventDefault();
                 toggleFullscreen(vid);
             }
         }
