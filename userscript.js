@@ -42,63 +42,69 @@
     }
 
     function vidCtrl(e) {
-        const key = e.code;
-        if (e.target.tagName === "VIDEO"){
-            const vid = e.target;
+        if (e.target.tagName !== "VIDEO"){
+            return;
+        }
 
-            if (key === 'ArrowLeft' || key === 'KeyA') {
-                e.preventDefault();
-                seekRel(vid, -5);
-            } else if (key === 'ArrowRight' || key === 'KeyD') {
-                e.preventDefault();
-                seekRel(vid, 5);
-            } else if (key === 'KeyJ') {
-                e.preventDefault();
-                seekRel(vid, -10);
-            } else if (key === 'KeyL') {
-                e.preventDefault();
-                seekRel(vid, 10);
-            } else if (key === "KeyK") {
-                e.preventDefault();
-                if (vid.paused) {
-                    vid.play();
-                } else{
-                    vid.pause();
-                }
-            } else if (key === 'Digit0') {
-                e.preventDefault();
-                seekPercent(vid, 0);
-            } else if (key === 'Digit1') {
-                e.preventDefault();
-                seekPercent(vid, 10);
-            } else if (key === 'Digit2') {
-                e.preventDefault();
-                seekPercent(vid, 20);
-            } else if (key === 'Digit3') {
-                e.preventDefault();
-                seekPercent(vid, 30);
-            } else if (key === 'Digit4') {
-                e.preventDefault();
-                seekPercent(vid, 40);
-            } else if (key === 'Digit5') {
-                e.preventDefault();
-                seekPercent(vid, 50);
-            } else if (key === 'Digit6') {
-                e.preventDefault();
-                seekPercent(vid, 60);
-            } else if (key === 'Digit7') {
-                e.preventDefault();
-                seekPercent(vid, 70);
-            } else if (key === 'Digit8') {
-                e.preventDefault();
-                seekPercent(vid, 80);
-            } else if (key === 'Digit9') {
-                e.preventDefault();
-                seekPercent(vid, 90);
-            } else if (key === 'KeyF') {
-                e.preventDefault();
-                toggleFullscreen(vid);
+        if (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) {
+            return;
+        }
+
+        const key = e.code;
+        const vid = e.target;
+
+        if (key === 'ArrowLeft' || key === 'KeyA') {
+            e.preventDefault();
+            seekRel(vid, -5);
+        } else if (key === 'ArrowRight' || key === 'KeyD') {
+            e.preventDefault();
+            seekRel(vid, 5);
+        } else if (key === 'KeyJ') {
+            e.preventDefault();
+            seekRel(vid, -10);
+        } else if (key === 'KeyL') {
+            e.preventDefault();
+            seekRel(vid, 10);
+        } else if (key === "KeyK") {
+            e.preventDefault();
+            if (vid.paused) {
+                vid.play();
+            } else{
+                vid.pause();
             }
+        } else if (key === 'Digit0') {
+            e.preventDefault();
+            seekPercent(vid, 0);
+        } else if (key === 'Digit1') {
+            e.preventDefault();
+            seekPercent(vid, 10);
+        } else if (key === 'Digit2') {
+            e.preventDefault();
+            seekPercent(vid, 20);
+        } else if (key === 'Digit3') {
+            e.preventDefault();
+            seekPercent(vid, 30);
+        } else if (key === 'Digit4') {
+            e.preventDefault();
+            seekPercent(vid, 40);
+        } else if (key === 'Digit5') {
+            e.preventDefault();
+            seekPercent(vid, 50);
+        } else if (key === 'Digit6') {
+            e.preventDefault();
+            seekPercent(vid, 60);
+        } else if (key === 'Digit7') {
+            e.preventDefault();
+            seekPercent(vid, 70);
+        } else if (key === 'Digit8') {
+            e.preventDefault();
+            seekPercent(vid, 80);
+        } else if (key === 'Digit9') {
+            e.preventDefault();
+            seekPercent(vid, 90);
+        } else if (key === 'KeyF') {
+            e.preventDefault();
+            toggleFullscreen(vid);
         }
     }
 })();
